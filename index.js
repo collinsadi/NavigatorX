@@ -17,7 +17,7 @@ app.use(cors())
 // cron to keep server online (runs every 5 minutes)
 cron.schedule("*/10 * * * *", () => {
     try {
-      axios.get("/starter")
+      axios.get("https://rsunx.onrender.com/starter")
     } catch (e) {
       console.log(e.message);
     }
