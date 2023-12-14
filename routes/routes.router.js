@@ -10,6 +10,10 @@ router.get("/", (request, response)=>{
 })
 
 
+router.get("/starter", (request, response)=>{
+    response.json({message:"Server Started"})
+})
+
 router.post("/message/new", messageController.newMessage)
 
 
