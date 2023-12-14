@@ -65,3 +65,12 @@ async function sendMessage() {
    
     }
 }
+
+
+window.addEventListener("keyup", async (e)=>{
+
+    if(e.key === "Enter"){
+        await sendMessage();
+    }
+
+})

@@ -1,6 +1,6 @@
 const { NlpManager } = require('node-nlp');
 const cleanTextFunction = require('../cleanText/clean');
-const manager = new NlpManager({ languages: ['en'], /*forceNER: true,*/ nlu: { useNoneFeature: false } });
+const manager = new NlpManager({ languages: ['en'], /*forceNER: true,*/ nlu: { useNoneFeature: true } });
 
 
 // DataSets
@@ -19,6 +19,20 @@ const answer_maingate_to_senate = require('../Data/english/mainGate/senateBuildi
 const maingate_to_library = require('../Data/english/mainGate/centralLibrary/maingate_to_library');
 const answer_maingate_to_library = require('../Data/english/mainGate/centralLibrary/ans_maingate_to_library');
 const maingate_to_law_departments = require('../Data/english/mainGate/lawDepartments/maingate_to_law_departments');
+const answer_maingate_to_law_departments = require('../Data/english/mainGate/lawDepartments/ans_maingate_to_law_departments');
+const maingate_to_management_science = require('../Data/english/mainGate/management/maingate_to_management');
+const answer_maingate_to_management_science = require('../Data/english/mainGate/management/ans_maingate_to_management');
+const maingate_to_management_departments = require('../Data/english/mainGate/managementDepartments/maingate_to_management_departments');
+const answer_maingate_to_management_departments = require('../Data/english/mainGate/managementDepartments/ans_maingate_to_management_departments');
+const maingate_to_social_science = require('../Data/english/mainGate/socialScience/maingate_to_social_science');
+const answer_maingate_to_social_science = require('../Data/english/mainGate/socialScience/ans_maingate_to_social_science');
+
+
+
+
+
+
+
 
 
 
@@ -52,6 +66,28 @@ manager.addDocument('en', prompt.prompt, prompt.intent);
 maingate_to_law_departments.forEach(prompt=>{
 manager.addDocument('en', prompt.prompt, prompt.intent);
 });
+maingate_to_management_science.forEach(prompt=>{
+manager.addDocument('en', prompt.prompt, prompt.intent);
+});
+maingate_to_management_departments.forEach(prompt=>{
+manager.addDocument('en', prompt.prompt, prompt.intent);
+});
+maingate_to_social_science.forEach(prompt=>{
+manager.addDocument('en', prompt.prompt, prompt.intent);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -80,10 +116,18 @@ manager.addAnswer('en', answer.intent, answer.answer );
 answer_maingate_to_library.forEach(answer=>{
 manager.addAnswer('en', answer.intent, answer.answer ); 
 });
-
-
-
-
+answer_maingate_to_law_departments.forEach(answer=>{
+manager.addAnswer('en', answer.intent, answer.answer ); 
+});
+answer_maingate_to_management_science.forEach(answer=>{
+manager.addAnswer('en', answer.intent, answer.answer ); 
+});
+answer_maingate_to_management_departments.forEach(answer=>{
+manager.addAnswer('en', answer.intent, answer.answer ); 
+});
+answer_maingate_to_social_science.forEach(answer=>{
+manager.addAnswer('en', answer.intent, answer.answer ); 
+});
 
 
 

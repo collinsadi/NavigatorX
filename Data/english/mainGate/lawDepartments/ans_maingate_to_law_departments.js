@@ -40,8 +40,7 @@ const answer_maingate_to_law_departments = [
     {
         answer: "It appears the department you're trying to find is within the Law Faculty. Although I don't have specific directions to each department, I can guide you to the faculty. To reach the Law Faculty from the Main Gate, walk straight along the pedestrian lane, pass a roundabout, make a right turn, continue past the Senate Building, reach a T junction, go straight, encounter another roundabout, stay in your lane, curve right, and you'll be at the Law Faculty, just across from the Central Library.",
         intent
-    },
-    // Add 30 more variations to reach a total of 40
+    }
 ];
 
 module.exports = answer_maingate_to_law_departments;
