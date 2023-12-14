@@ -26,6 +26,8 @@ const maingate_to_management_departments = require('../Data/english/mainGate/man
 const answer_maingate_to_management_departments = require('../Data/english/mainGate/managementDepartments/ans_maingate_to_management_departments');
 const maingate_to_social_science = require('../Data/english/mainGate/socialScience/maingate_to_social_science');
 const answer_maingate_to_social_science = require('../Data/english/mainGate/socialScience/ans_maingate_to_social_science');
+const maingate_to_social_science_departments = require('../Data/english/mainGate/socialScienceDepartments/maingate_to_socialscience_departments');
+const answer_maingate_to_social_science_departments = require('../Data/english/mainGate/socialScienceDepartments/ans_maingate_to_socialscience_departments');
 
 
 
@@ -75,7 +77,9 @@ manager.addDocument('en', prompt.prompt, prompt.intent);
 maingate_to_social_science.forEach(prompt=>{
 manager.addDocument('en', prompt.prompt, prompt.intent);
 });
-
+maingate_to_social_science_departments.forEach(prompt=>{
+manager.addDocument('en', prompt.prompt, prompt.intent);
+});
 
 
 
@@ -128,7 +132,9 @@ manager.addAnswer('en', answer.intent, answer.answer );
 answer_maingate_to_social_science.forEach(answer=>{
 manager.addAnswer('en', answer.intent, answer.answer ); 
 });
-
+answer_maingate_to_social_science_departments.forEach(answer=>{
+manager.addAnswer('en', answer.intent, answer.answer ); 
+});
 
 
 
