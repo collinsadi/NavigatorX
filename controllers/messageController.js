@@ -5,51 +5,47 @@ const trainModel = require("../training/navigatorX");
 
 const messageController = {
 
-    newMessage: async (request, response)=>{
+    newMessage: async (request, response) => {
     
-        const message = request.body.message
+        const message = request.body.message;
 
-        // badwords.forEach(badword=>{
-        //     if(message.includes(badword)){
-        //     response.status(400).json({status:true, message:"Query Received", response:"You Prompt Contains a Badword"})
-        //     return
-        //     }
-
-            
-        // })
-
-       try{
-
-        const botResponse = await trainModel(message)
-        let responseMessage = "NIce One"
-
-        if(botResponse.intent === "None"){
-            responseMessage = "I Didn't Get That Can You Please Rephrase"
-        }else if(botResponse.score < 0.7){
-
-            responseMessage = "I Didn't Get That Can You Please Add more Context to Where You'll Love to get Directions to?"
-        }else{
-
-            responseMessage = botResponse.answer
-
+        for (const badword of badwords) {
+            if (message.includes(badword)) {
+                return response.status(400).json({
+                    status: true,
+                    message: "Query Received",
+                    response: "Your prompt contains a bad word"
+                });
+            }
         }
 
-        
-        console.log(botResponse)
+        try {
+            const botResponse = await trainModel(message);
+            let responseMessage = "";
 
-        response.status(200).json({status:true, message:"Query Received", response:responseMessage})
+            if (botResponse.intent === "None") {
+                responseMessage = "I didn't get that. Can you please rephrase?";
+            } else if (botResponse.score < 0.7) {
+                responseMessage = "I didn't get that. Can you please add more context to where you'd love to get directions to?";
+            } else {
+                responseMessage = botResponse.answer;
+            }
 
+            console.log(botResponse);
 
-       }catch(error){
-        console.log(error)
-        response.status(500).json({status:false, message:"Internal Server Error"})
-       }
-        
-
+            return response.status(200).json({
+                status: true,
+                message: "Query Received",
+                response: responseMessage
+            });
+        } catch (error) {
+            console.error(error);
+            return response.status(500).json({
+                status: false,
+                message: "Internal Server Error"
+            });
+        }
     }
-
-
-}
-
+};
 
 module.exports = messageController;
