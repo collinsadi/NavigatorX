@@ -32,6 +32,8 @@ const maingate_to_humanities = require('../Data/english/mainGate/humanities/main
 const answer_maingate_to_humanities = require('../Data/english/mainGate/humanities/ans_maingate_to_humanities');
 const maingate_to_amphitheatre = require('../Data/english/mainGate/amphitheatre/maingate_to_amphitheatre');
 const answer_maingate_to_amphitheatre = require('../Data/english/mainGate/amphitheatre/ans_maingate_to_amphitheatre');
+const maingate_to_humanities_departments = require('../Data/english/mainGate/humanitiesDepartments/maingate_to_humanities_departments');
+const answer_maingate_to_humanities_departments = require('../Data/english/mainGate/humanitiesDepartments/ans_maingate_to_humanities_departments');
 
 
 
@@ -90,7 +92,9 @@ manager.addDocument('en', prompt.prompt, prompt.intent);
 maingate_to_amphitheatre.forEach(prompt=>{
 manager.addDocument('en', prompt.prompt, prompt.intent);
 });
-
+maingate_to_humanities_departments.forEach(prompt=>{
+manager.addDocument('en', prompt.prompt, prompt.intent);
+});
 
 
 
@@ -148,7 +152,9 @@ manager.addAnswer('en', answer.intent, answer.answer );
 answer_maingate_to_amphitheatre.forEach(answer=>{
 manager.addAnswer('en', answer.intent, answer.answer ); 
 });
-
+answer_maingate_to_humanities_departments.forEach(answer=>{
+manager.addAnswer('en', answer.intent, answer.answer ); 
+});
 
 
 
