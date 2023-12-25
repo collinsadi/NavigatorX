@@ -9,15 +9,15 @@ const messageController = {
     
         const message = request.body.message;
 
-        for (const badword of badwords) {
-            if (message.includes(badword)) {
-                return response.status(400).json({
-                    status: true,
-                    message: "Query Received",
-                    response: "Your prompt contains a bad word"
-                });
-            }
-        }
+        // for (const badword of badwords) {
+        //     if (message.includes(badword)) {
+        //         return response.status(400).json({
+        //             status: true,
+        //             message: "Query Received",
+        //             response: "Your prompt contains a bad word"
+        //         });
+        //     }
+        // }
 
         try {
             const botResponse = await trainModel(message);
@@ -50,15 +50,15 @@ const messageController = {
     
         const message = request.query.message;
 
-        for (const badword of badwords) {
-            if (message.includes(badword)) {
-                return response.status(400).json({
-                    status: true,
-                    message: "Query Received",
-                    response: "Your prompt contains a bad word"
-                });
-            }
-        }
+        // for (const badword of badwords) {
+        //     if (message.includes(badword)) {
+        //         return response.status(400).json({
+        //             status: true,
+        //             message: "Query Received",
+        //             response: "Your prompt contains a bad word"
+        //         });
+        //     }
+        // }
 
         try {
             const botResponse = await trainModel(message);
