@@ -8,6 +8,9 @@ const router = express.Router();
 router.get("/", (request, response)=>{
     response.render("index")
 })
+router.get("/chat", (request, response)=>{
+    response.render("index")
+})
 
 
 router.get("/starter", (request, response)=>{
