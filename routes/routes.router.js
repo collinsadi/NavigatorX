@@ -16,6 +16,7 @@ router.get("/chat", (request, response)=>{
 router.get("/starter", (request, response)=>{
     response.json({message:"Server Started"})
 })
+router.get("/prompt",messageController.newMessage2)
 
 router.post("/message/new", messageController.newMessage)
 
