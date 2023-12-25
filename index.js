@@ -3,7 +3,7 @@ const app = express()
 const routes = require("./routes/routes.router")
 const cors = require("cors")
 const cron = require("node-cron");
-// const axios = require("axios")
+const axios = require("axios")
 
 // cron to keep server online (runs every 5 minutes)
 cron.schedule("*/10 * * * *", () => {
