@@ -1,2 +1,4 @@
 Check Bad Words
 Clean Up Code
+Save Model after New Datasets have Been Added
+Load model or disable save on Serverless Hostings

@@ -15,10 +15,10 @@ const axios = require("axios")
 //     }
 //   });
 
-app.set("view engine", "ejs");
-app.use(express.static("public"));
+// app.set("view engine", "ejs");
+// app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}))
-app.use(express.json({limit:"10mb"}))
+app.use(express.json())
 
 app.use(cors({
     origin:"https://rsuchat.netlify.app"
