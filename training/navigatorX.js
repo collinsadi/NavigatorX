@@ -180,9 +180,9 @@ manager.addAnswer('en', answer.intent, answer.answer );
 // Train and save the model.
 
 const trainModel = async (input)=>{
-        await manager.train(); 
+        // await manager.train();
         // manager.save();
-        // manager.load('model.nlp');
+        manager.load('model.nlp');
         const response = await manager.process('en', cleanTextFunction(input));
         return response
 }
