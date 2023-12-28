@@ -1,4 +1,6 @@
 const badwords = require("../badwords/badwords");
+const Ip = require("../schemas/ip");
+const Prompt = require("../schemas/prompt");
 const trainModel = require("../training/navigatorX");
 
 
@@ -7,7 +9,17 @@ const messageController = {
 
     newMessage: async (request, response) => {
     
-        const message = request.body.message;
+        const {message,ip} = request.body;
+
+        const ipIsBlocked = await Ip.findOne({ipAddress:ip});
+
+        if(ipIsBlocked){
+            return response.status(400).json({
+                status: true,
+                message: "Query Received",
+                response: "You Have Been Blocked from Using NavigatorX"
+            });
+        }
 
         // for (const badword of badwords) {
         //     if (message.includes(badword)) {
@@ -25,10 +37,17 @@ const messageController = {
 
             if (botResponse.intent === "None") {
                 responseMessage = "I didn't get that. Can you please rephrase?";
+
+                await Prompt.create({prompt:message, response:responseMessage,ipAddress:ip,highlyCritical:true})
+
             } else if (botResponse.score < 0.7) {
                 responseMessage = "I didn't get that. Can you please add more context to where you'd love to get directions to?";
+
+                await Prompt.create({prompt:message, response:responseMessage,ipAddress:ip,critical:true})
             } else {
                 responseMessage = botResponse.answer;
+
+                await Prompt.create({prompt:message, response:responseMessage,ipAddress:ip})
             }
 
             console.log(botResponse);
