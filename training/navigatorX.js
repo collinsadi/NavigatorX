@@ -36,6 +36,8 @@ const maingate_to_humanities_departments = require('../Data/english/mainGate/hum
 const answer_maingate_to_humanities_departments = require('../Data/english/mainGate/humanitiesDepartments/ans_maingate_to_humanities_departments');
 const maingate_to_bank = require('../Data/english/mainGate/banks/maingate_to_bank');
 const answer_maingate_to_bank = require('../Data/english/mainGate/banks/ans_maingate_to_bank');
+const greeting_english = require('../Data/english/greeting/greeting_english');
+const answer_greeting_english = require('../Data/english/greeting/ans_greeting_english');
 
 
 
@@ -100,7 +102,9 @@ manager.addDocument('en', prompt.prompt, prompt.intent);
 maingate_to_bank.forEach(prompt=>{
 manager.addDocument('en', prompt.prompt, prompt.intent);
 });
-
+greeting_english.forEach(prompt=>{
+manager.addDocument('en', prompt.prompt, prompt.intent);
+});
 
 
 
@@ -162,7 +166,9 @@ manager.addAnswer('en', answer.intent, answer.answer );
 answer_maingate_to_bank.forEach(answer=>{
 manager.addAnswer('en', answer.intent, answer.answer ); 
 });
-
+answer_greeting_english.forEach(answer=>{
+manager.addAnswer('en', answer.intent, answer.answer ); 
+});
 
 
 

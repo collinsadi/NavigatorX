@@ -3,20 +3,10 @@ const app = express()
 const routes = require("./routes/routes.router")
 const cors = require("cors")
 const cron = require("node-cron");
-const axios = require("axios")
+const axios = require("axios");
+require("dotenv").config();
+const uri = process.env.MONGO_URI;
 
-// cron to keep server online (runs every 5 minutes)
-// cron.schedule("*/10 * * * *", () => {
-//     try {
-//       axios.get("https://rsunx.onrender.com/starter");
-//       axios.get("https://nxtbot.onrender.com/generate");
-//     } catch (e) {
-//       console.log(e.message);
-//     }
-//   });
-
-// app.set("view engine", "ejs");
-// app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
