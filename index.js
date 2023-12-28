@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.use(cors({
-    origin:"https://rsuchat.netlify.app"
+    origin:"https://rsux.netlify.app"
 }))
 app.use(routes)
 
