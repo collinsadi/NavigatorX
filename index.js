@@ -13,6 +13,7 @@ app.use(express.json())
 app.use(cors({
     origin:"https://rsux.netlify.app"
 }))
+// app.use(cors())
 app.use(routes)
 
 

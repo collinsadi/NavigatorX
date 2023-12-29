@@ -7,6 +7,7 @@ const promptController = {
     resolvePrompt: async (request, response)=>{
         
         const promptId = request.body.id;
+        console.log(request.body);
 
         try{
 

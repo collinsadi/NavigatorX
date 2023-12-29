@@ -1,5 +1,6 @@
 const express = require("express");
 const messageController = require("../controllers/messageController");
+const promptController = require("../controllers/promptController");
 const router = express.Router();
 
 
@@ -19,6 +20,11 @@ router.get("/starter", (request, response)=>{
 // router.get("/prompt",messageController.newMessage2)
 
 router.post("/message/new", messageController.newMessage)
+router.get("/prompt/get/resolved", promptController.getResolvedPrompts);
+router.get("/prompt/get/unresolved", promptController.getUnresolvedPrompts);
+router.post("/prompt/edit/resolve", promptController.resolvePrompt);
+router.post("/prompt/edit/unresolve", promptController.unresolvePrompt);
+router.post("/prompt/block/ip", promptController.blockPromptIp);
 
 
 
