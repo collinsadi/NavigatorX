@@ -38,7 +38,7 @@ router.post("/prompt/edit/resolve",authMiddleware, promptController.resolvePromp
 router.post("/prompt/edit/unresolve",authMiddleware, promptController.unresolvePrompt);
 router.post("/prompt/block/ip",authMiddleware, promptController.blockPromptIp);
 router.post("/prompt/analytics",authMiddleware, promptController.promptStatistics);
-router.post("/prompt/management/login",authMiddleware, promptController.login);
+router.post("/prompt/management/login", promptController.login);
 router.post("/prompt/delete",authMiddleware, promptController.deletePrompt);
 
 
