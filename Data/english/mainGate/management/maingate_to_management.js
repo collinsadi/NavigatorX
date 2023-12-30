@@ -1,5 +1,5 @@
 const intent = `maingate_to_management_science_english`;
-const destination = `Management Science Faculty`
+const destination = `Management Faculty`
 
 const maingate_to_management_science = [
   {
