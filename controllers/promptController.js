@@ -1,6 +1,7 @@
 const Ip = require("../schemas/ip");
 const Prompt = require("../schemas/prompt");
-
+require("dotenv").config();
+const token = process.env.SECRET;
 
 const promptController = {
 
@@ -180,6 +181,27 @@ const promptController = {
            await Ip.create({ipAddress:prompt.ipAddress});
 
            response.status(200).json({status:true, message:"IP Address Blocked"})
+
+        }catch(error){
+            console.log(error)
+            response.status(500).json({status:false, message:"Internal Server Error"})
+        }
+    },
+    login: async (request, response)=>{
+
+        const {email, password} = request.body;
+
+        try{
+
+            if(email !== process.env.EMAIL){
+                return response.status(400).json({status:false, message:"Invalid Credentials"})
+            }
+            if(password !== process.env.PASS){
+                return response.status(400).json({status:false, message:"Invalid Credentials"})
+            }
+
+            response.status(200).json({status:true, token})
+
 
         }catch(error){
             console.log(error)
