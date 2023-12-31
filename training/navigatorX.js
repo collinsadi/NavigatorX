@@ -40,6 +40,10 @@ const greeting_english = require('../Data/english/greeting/greeting_english');
 const answer_greeting_english = require('../Data/english/greeting/ans_greeting_english');
 const angry_english = require('../Data/english/angry/angry_english');
 const answer_angry_english = require('../Data/english/angry/ans_angry_english');
+const maingate_to_ict_center = require('../Data/english/mainGate/ICT/maingate_to_ict_center');
+const anser_maingate_to_ict_center = require('../Data/english/mainGate/ICT/ans_maingate_to_ict_center');
+const maingate_to_medical_center = require('../Data/english/mainGate/medical/maingate_to_medical_center');
+const answer_maingate_to_medical_center = require('../Data/english/mainGate/medical/ans_maingate_to_medical_center');
 
 
 
@@ -110,7 +114,12 @@ manager.addDocument('en', prompt.prompt, prompt.intent);
 angry_english.forEach(prompt=>{
 manager.addDocument('en', prompt.prompt, prompt.intent);
 });
-
+maingate_to_ict_center.forEach(prompt=>{
+manager.addDocument('en', prompt.prompt, prompt.intent);
+});
+maingate_to_medical_center.forEach(prompt=>{
+manager.addDocument('en', prompt.prompt, prompt.intent);
+});
 
 
 
@@ -176,6 +185,18 @@ manager.addAnswer('en', answer.intent, answer.answer );
 answer_angry_english.forEach(answer=>{
 manager.addAnswer('en', answer.intent, answer.answer ); 
 });
+anser_maingate_to_ict_center.forEach(answer=>{
+manager.addAnswer('en', answer.intent, answer.answer ); 
+});
+answer_maingate_to_medical_center.forEach(answer=>{
+manager.addAnswer('en', answer.intent, answer.answer ); 
+});
+
+
+
+
+
+
 
 
 
