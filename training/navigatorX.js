@@ -59,6 +59,7 @@ const answer_maingate_to_medical_center = require('../Data/english/mainGate/medi
 
 
 
+
 // Adds the utterances and intents for the NLP
 maingate_to_shopping_complex_english.forEach(prompt=>{
 manager.addDocument('en', prompt.prompt, prompt.intent);
@@ -191,7 +192,6 @@ manager.addAnswer('en', answer.intent, answer.answer );
 answer_maingate_to_medical_center.forEach(answer=>{
 manager.addAnswer('en', answer.intent, answer.answer ); 
 });
-
 
 
 

@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.use(cors({
-    origin:"https://navigatorx.com.ng"
+    origin:["https://navigatorx.com.ng"]
 }))
 // app.use(cors())
 app.use(routes)
